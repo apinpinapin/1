@@ -1,4 +1,6 @@
-const { proto, delay, getContentType } = require('@adiwajshing/baileys')
+
+
+const { proto, delay, getContentType, areJidsSameUser, generateWAMessage } = require("@whiskeysockets/baileys")
 const chalk = require('chalk')
 const fs = require('fs')
 const Crypto = require('crypto')
@@ -28,6 +30,19 @@ exports.processTime = (timestamp, now) => {
 exports.getRandom = (ext) => {
     return `${Math.floor(Math.random() * 10000)}${ext}`
 }
+
+exports.checkBandwidth = async () => {
+let ind = 0;
+let out = 0;
+for (let i of await require("node-os-utils").netstat.stats()) {
+ind += parseInt(i.inputBytes);
+out += parseInt(i.outputBytes);
+}
+return {
+download: exports.bytesToSize(ind),
+upload: exports.bytesToSize(out),
+};
+};
 
 exports.getBuffer = async (url, options) => {
 	try {
@@ -65,13 +80,6 @@ exports.fetchJson = async (url, options) => {
     }
 }
 
-exports.formatp = sizeFormatter({
-    std: 'JEDEC', //'SI' = default | 'IEC' | 'JEDEC'
-    decimalPlaces: 2,
-    keepTrailingZeroes: false,
-    render: (literal, symbol) => `${literal} ${symbol}B`,
-})
-
 exports.runtime = function(seconds) {
 	seconds = Number(seconds);
 	var d = Math.floor(seconds / (3600 * 24));
@@ -95,6 +103,32 @@ exports.clockString = (ms) => {
 exports.sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+exports.formatSize = (bytes) => {
+const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+if (bytes === 0) return '0 Bytes';
+const i = Math.floor(Math.log(bytes) / Math.log(1024));
+return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
+};
+
+exports.getBuffer = async (url, options) => {
+try {
+options = options || {};
+const res = await axios({
+method: "get",
+url,
+headers: {
+'DNT': 1,
+'Upgrade-Insecure-Request': 1
+},
+...options,
+responseType: 'arraybuffer'
+});
+return res.data;
+} catch (err) {
+return err;
+}
+};
 
 exports.isUrl = (url) => {
     return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
@@ -140,20 +174,19 @@ exports.tanggal = (numer) => {
 				return`${thisDay}, ${day} - ${myMonths[bulan]} - ${year}`
 }
 
+exports.formatp = sizeFormatter({
+    std: 'JEDEC', //'SI' = default | 'IEC' | 'JEDEC'
+    decimalPlaces: 2,
+    keepTrailingZeroes: false,
+    render: (literal, symbol) => `${literal} ${symbol}B`,
+})
+
 exports.jsonformat = (string) => {
     return JSON.stringify(string, null, 2)
 }
 
 function format(...args) {
 	return util.format(...args)
-}
-//https://github.com/FERDIZ-afk/bot-oni-chan/blob/master/lib/simpel.js#L25
-function getTypeMessage(message) {
-  	  const type = Object.keys(message)
-			var restype =  (!['senderKeyDistributionMessage', 'messageContextInfo'].includes(type[0]) && type[0]) || // Sometimes message in the front
-					(type.length >= 3 && type[1] !== 'messageContextInfo' && type[1]) || // Sometimes message in midle if mtype length is greater than or equal to 3
-					type[type.length - 1] || Object.keys(message)[0] // common case
-	return restype
 }
 
 exports.logic = (check, inp, out) => {
@@ -171,6 +204,26 @@ exports.generateProfilePicture = async (buffer) => {
 	return {
 		img: await cropped.scaleToFit(720, 720).getBufferAsync(Jimp.MIME_JPEG),
 		preview: await cropped.scaleToFit(720, 720).getBufferAsync(Jimp.MIME_JPEG)
+	}
+}
+
+exports.fetchBuffer = async (url, options) => {
+	try {
+		options ? options : {}
+		const res = await axios({
+			method: "GET",
+			url,
+			headers: {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36",
+				'DNT': 1,
+				'Upgrade-Insecure-Request': 1
+			},
+			...options,
+			responseType: 'arraybuffer'
+		})
+		return res.data
+	} catch (err) {
+		return err
 	}
 }
 
@@ -217,27 +270,15 @@ exports.getGroupAdmins = (participants) => {
         return admins || []
      }
 
-     
- exports.removeEmojis = (string) => {
-	var regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
-	return string.replace(regex, '');
-}
-
-exports.getRandom = (ext) => {
-    return `${Math.floor(Math.random() * 10000)}${ext}`
-}
-
-
 /**
  * Serialize Message
  * @param {WAConnection} conn 
  * @param {Object} m 
  * @param {store} store 
  */
-exports.smsg = (conn, m, store) => {
+exports.smsg = (conn, m, msg, store) => {
     if (!m) return m
     let M = proto.WebMessageInfo
-    var m = M.fromObject(m)
     if (m.key) {
         m.id = m.key.id
         m.isBaileys = m.id.startsWith('BAE5') && m.id.length === 16
@@ -247,90 +288,67 @@ exports.smsg = (conn, m, store) => {
         m.sender = conn.decodeJid(m.fromMe && conn.user.id || m.participant || m.key.participant || m.chat || '')
         if (m.isGroup) m.participant = conn.decodeJid(m.key.participant) || ''
     }
-	if (m.message) {
-		m.mtype = getTypeMessage(m.message)
-		m.msg = (m.mtype == 'viewOnceMessage' ? m.message[m.mtype].message[getTypeMessage(m.message[m.mtype].message)] : m.message[m.mtype])
-//		m.body = m.message.conversation || m.msg.caption || m.msg.text || (m.mtype == 'listResponseMessage') && m.msg.singleSelectReply.selectedRowId || (m.mtype == 'buttonsResponseMessage') && m.msg.selectedButtonId || (m.mtype == 'viewOnceMessage') && m.msg.caption || m.tex // (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (type == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : (m.mtype == 'listResponseMessage') && m.message.listResponseMessage.singleSelectReply.selectedRowId ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'buttonsResponseMessage') && m.message.buttonsResponseMessage.selectedButtonId ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'templateButtonReplyMessage') && m.message.templateButtonReplyMessage.selectedId ? m.message.templateButtonReplyMessage.selectedId : ''
-		
-		try {
-			m.body =
-				m.message.conversation ||
-				m.message[m.type].text ||
-				m.message[m.type].caption ||
-				(m.type === "listResponseMessage" && m.message[m.type].singleSelectReply.selectedRowId) ||
-				(m.type === "buttonsResponseMessage" &&
-					m.message[m.type].selectedButtonId) ||
-				(m.type === "templateButtonReplyMessage" && m.message[m.type].selectedId) ||
-				"";
-		} catch {
-			m.body = "";
-		}
-		
-		
-		
-		// t
-		let quoted = m.quoted = m.msg.contextInfo ? m.msg.contextInfo.quotedMessage : null
-		//m.mentionedJid = m.msg.contextInfo ? m.msg.contextInfo.mentionedJid : []
-		m.mentionedJid = m.msg.contextInfo ? m.msg.contextInfo.mentionedJid : []
-		if (m.quoted) {
-			let type = Object.keys(quoted)[0]
+    if (m.message) {
+        m.mtype = getContentType(m.message)
+        m.msg = (m.mtype == 'viewOnceMessage' ? m.message[m.mtype].message[getContentType(m.message[m.mtype].message)] : m.message[m.mtype])
+        m.body = m.message.conversation || m.msg.caption || m.msg.text || (m.mtype == 'listResponseMessage') && m.msg.singleSelectReply.selectedRowId || (m.mtype == 'buttonsResponseMessage') && m.msg.selectedButtonId || (m.mtype == 'viewOnceMessage') && m.msg.caption || m.text
+        let quoted = m.quoted = m.msg.contextInfo ? m.msg.contextInfo.quotedMessage : null
+        m.mentionedJid = m.msg.contextInfo ? m.msg.contextInfo.mentionedJid : []
+        if (m.quoted) {
+            let type = Object.keys(m.quoted)[0]
 			m.quoted = m.quoted[type]
-			if (['productMessage'].includes(type)) {
-				type = getContentType(m.quoted)
+            if (['productMessage'].includes(type)) {
+				type = Object.keys(m.quoted)[0]
 				m.quoted = m.quoted[type]
 			}
-			if (typeof m.quoted === 'string') m.quoted = {
+            if (typeof m.quoted === 'string') m.quoted = {
 				text: m.quoted
 			}
-			m.quoted.mtype = type
-			m.quoted.id = m.msg.contextInfo.stanzaId
+            m.quoted.mtype = type
+            m.quoted.id = m.msg.contextInfo.stanzaId
 			m.quoted.chat = m.msg.contextInfo.remoteJid || m.chat
-			m.quoted.isBaileys = m.quoted.id ? m.quoted.id.startsWith('BAE5') && m.quoted.id.length === 16 : false
+            m.quoted.isBaileys = m.quoted.id ? m.quoted.id.startsWith('BAE5') && m.quoted.id.length === 16 : false
 			m.quoted.sender = conn.decodeJid(m.msg.contextInfo.participant)
-			m.quoted.fromMe = m.quoted.sender === (conn.user && conn.user.jid)
-			m.quoted.text = m.quoted.text || m.quoted.caption || m.quoted.conversation || m.quoted.contentText || m.quoted.selectedDisplayText || m.quoted.title || ''
-			m.quoted.mentionedJid = m.quoted.contextInfo ? m.quoted.contextInfo.mentionedJid : []
-			m.getQuotedObj = m.getQuotedMessage = async () => {
-				if (!m.quoted.id) return false
-				let q = await store.loadMessage(m.chat, m.quoted.id, conn)
-				return exports.smsg(conn, q, store)
-			}
-			let vM = m.quoted.fakeObj = M.fromObject({
-				key: {
-					remoteJid: m.quoted.chat,
-					fromMe: m.quoted.fromMe,
-					id: m.quoted.id
-				},
-				message: quoted,
-				...(m.isGroup ? {
-					participant: m.quoted.sender
-				} : {})
-			})
+			m.quoted.fromMe = m.quoted.sender === conn.decodeJid(conn.user.id)
+            m.quoted.text = m.quoted.text || m.quoted.caption || m.quoted.conversation || m.quoted.contentText || m.quoted.selectedDisplayText || m.quoted.title || ''
+			m.quoted.mentionedJid = m.msg.contextInfo ? m.msg.contextInfo.mentionedJid : []
+            m.getQuotedObj = m.getQuotedMessage = async () => {
+			if (!m.quoted.id) return false
+			let q = await store.loadMessage(m.chat, m.quoted.id, conn)
+ 			return exports.smsg(conn, q, store)
+            }
+            let vM = m.quoted.fakeObj = M.fromObject({
+                key: {
+                    remoteJid: m.quoted.chat,
+                    fromMe: m.quoted.fromMe,
+                    id: m.quoted.id
+                },
+                message: quoted,
+                ...(m.isGroup ? { participant: m.quoted.sender } : {})
+            })
 
-			/**
-			 * 
-			 * @returns 
-			 */
-			m.quoted.delete = () => conn.sendMessage(m.quoted.chat, {
-				delete: vM.key
-			})
+            /**
+             * 
+             * @returns 
+             */
+            m.quoted.delete = () => conn.sendMessage(m.quoted.chat, { delete: vM.key })
 
-			/**
-			 * 
-			 * @param {*} jid 
-			 * @param {*} forceForward 
-			 * @param {*} options 
-			 * @returns 
-			 */
-			m.quoted.copyNForward = (jid, forceForward = false, options = {}) => conn.copyNForward(jid, vM, forceForward, options)
+	   /**
+		* 
+		* @param {*} jid 
+		* @param {*} forceForward 
+		* @param {*} options 
+		* @returns 
+	   */
+            m.quoted.copyNForward = (jid, forceForward = false, options = {}) => conn.copyNForward(jid, vM, forceForward, options)
 
-			/**
-			 *
-			 * @returns
-			 */
-			m.quoted.download = () => conn.downloadMediaMessage(m.quoted)
-		}
-	}
+            /**
+              *
+              * @returns
+            */
+            m.quoted.download = () => conn.downloadMediaMessage(m.quoted)
+        }
+    }
     if (m.msg.url) m.download = () => conn.downloadMediaMessage(m.msg)
     m.text = m.msg.text || m.msg.caption || m.message.conversation || m.msg.contentText || m.msg.selectedDisplayText || m.msg.title || ''
     /**
@@ -353,6 +371,23 @@ exports.smsg = (conn, m, store) => {
 	 * @returns 
 	 */
 	m.copyNForward = (jid = m.chat, forceForward = false, options = {}) => conn.copyNForward(jid, m, forceForward, options)
+
+conn.appenTextMessage = async(text, chatUpdate) => {
+let messages = await generateWAMessage(m.chat, { text: text, mentions: m.mentionedJid }, {
+userJid: conn.user.id,
+quoted: m.quoted && m.quoted.fakeObj
+})
+messages.key.fromMe = areJidsSameUser(m.sender, conn.user.id)
+messages.key.id = m.key.id
+messages.pushName = m.pushName
+if (m.isGroup) messages.participant = m.sender
+let msg = {
+    ...chatUpdate,
+    messages: [proto.WebMessageInfo.fromObject(messages)],
+    type: 'append'
+}
+conn.ev.emit('messages.upsert', msg)
+}
 
     return m
 }
