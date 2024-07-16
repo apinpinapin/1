@@ -20,6 +20,7 @@ global.capikey = '-' // Pltc
 global.eggsnya = '15'
 global.location = '1'
 
+global.lenwymenu = 'LenwyORI'
 global.botname = 'Lenwy'
 global.packname = 'Lenwy'
 global.author = `YouTube: Lenwy\nBot: 0856-2497-5232`
@@ -44,9 +45,12 @@ global.mess = {
     format: '🎁 *Pembayaran*\n📣 *All Payment Bisa Scan Qr Diatas*\n\n📃 *Metode Lain*\n🏷️ *Ovo : 62-*\n🏷️ *Dana : 62-*\n🏷️ *Gopay : 62-*\n\n⚠️ *Dimohon Untuk Mengirim Bukti Pembayaran*\n\n❤️ *Terimakasih*',
 }
 
-global.limitawal = {
-    premium: 100000 ,
-    free: 50
+global.LenwySet = {
+    free: 50,
+    coin: 15,
+    stamina: 30,
+    kekuatan: 100,
+    tahan: 80
 }
 
 global.multiplier = 1000
