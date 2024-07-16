@@ -8,7 +8,7 @@ global.thumb = fs.readFileSync("./data/image/thumb.jpg")
 global.email = 'Fake01@gmail.com'
 global.region = 'Indonesia'
 
-global.owner = ['6287821239407']
+global.owner = ['6283829814737']
 global.ownername = 'Lenwy'
 
 global.keyopenai = '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'
