@@ -1,6 +1,6 @@
-const cheerio = require('cheerio')
+const cheerio = require('cheerio');
 
-    async function ttslide(text) {
+async function ttslide(text) {
     let response = await axios.get(`https://dlpanda.com/id?url=${text}&token=G7eRpMaa`)
     const html = response.data
     const $ = cheerio.load(html)
@@ -25,7 +25,7 @@ const cheerio = require('cheerio')
     for (let i of asd) {
         return i
     }
-}
+
 ttslide(`https://vt.tiktok.com/ZSNyY9McY/`)
 
 module.exports = { ttslide }
