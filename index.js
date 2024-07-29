@@ -86,11 +86,11 @@ whitespaceBreak: false
 }), 'blue'))
 
 console.log(chalk.white.bold(`${chalk.green.bold("📃  Informasi :")}         
-✉️  Script Skripsi
-✉️  Author : Alfin Faridh Taufiqiy
-✉️  Gmail : selenapro2000@gmail.com
-✉️  Instagram : coreinpin
-✉️  Whatsapp : 6281231948641
+✉️  Script Lenwy Versi 2.0
+✉️  Author : Lenwy
+✉️  Gmail : ilenwyy@gmail.com
+✉️  Instagram : Ilenwy_
+✉️  Youtube : Lenwy
 
 ${chalk.green.bold("🎁  Subscribe Lenwy :D")}\n`));
 
@@ -178,7 +178,7 @@ let a = `☘️ *Halo ${num.split("@")[0]}*\n📣 *Selamat Datang Di Group :* ${
          title: `☘️ Halo Selamat Datang`,
          body: `${ownername}`,
          thumbnailUrl: ppuser,
-         sourceUrl: "https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V",
+         sourceUrl: "https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u",
          mediaType: 1,
          renderLargerThumbnail: true
     }}})
@@ -193,7 +193,7 @@ lenwy.sendMessage(anu.id, {
          title: `☘️ Selamat Tinggal`,
          body: `${ownername}`,
          thumbnailUrl: ppuser,
-         sourceUrl: "https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V",
+         sourceUrl: "https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u",
          mediaType: 1,
          renderLargerThumbnail: true
     }}})
@@ -414,7 +414,7 @@ console.log(`Unknown DisconnectReason: ${reason}|${connection}`);
 connectToWhatsApp();
   }
 } else if (connection === "open") {
-  lenwy.sendMessage('6281231948641' + "@s.whatsapp.net", { text: `☘️ *Bot Skripsi Sukses Terhubung*\n🎁 *Author : wa.me/6281231948641*` });
+  lenwy.sendMessage('6281231948641' + "@s.whatsapp.net", { text: `☘️ *Bot Lenwy Sukses Terhubung*\n🎁 *Author : wa.me/6283829814737*` });
 }
 // console.log('Connected...', update)
 });

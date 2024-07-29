@@ -2,14 +2,14 @@ const fs = require('fs')
 const chalk = require('chalk')
 const moment = require('moment-timezone')
 
-global.grup = 'https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V'
+global.grup = 'https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u'
 global.ig = '-'
 global.thumb = fs.readFileSync("./data/image/thumb.jpg")
-global.email = 'selenapro2000@gmail.com'
+global.email = 'Fake01@gmail.com'
 global.region = 'Indonesia'
 
-global.owner = ['6281231948641']
-global.ownername = 'Alfin Faridh Taufiqiy'
+global.owner = ['6283829814737']
+global.ownername = 'Lenwy'
 
 global.keyopenai = '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'
 global.ibeng = 'Yl4h5x9wiA'
@@ -20,12 +20,12 @@ global.capikey = '-' // Pltc
 global.eggsnya = '15'
 global.location = '1'
 
-global.lenwymenu = 'Alfin Faridh Taufiqiy'
-global.botname = 'Alfin Faridh Taufiqiy'
-global.packname = 'Alfin Faridh Taufiqiy'
-global.author = `Whatsapp: \nBot: 6281231948641`
+global.lenwymenu = 'LenwyORI'
+global.botname = 'Lenwy'
+global.packname = 'Lenwy'
+global.author = `YouTube: Lenwy\nBot: 0856-2497-5232`
 global.prefa = ['','!','.',',','🐤','🗿']
-global.sessionName = 'apin'
+global.sessionName = 'Lenwy'
 global.anticall = true
 
 global.mess = {
@@ -40,7 +40,7 @@ global.mess = {
     link: '⚠️ *Itu Bukan Link Yang Benar*',
     
     // Fitur Store & Report
-    owner2: '6281231948641',
+    owner2: '6283829814737',
     qris: 'https://telegra.ph/file/41993d781e2d608315cc1.jpg',
     format: '🎁 *Pembayaran*\n📣 *All Payment Bisa Scan Qr Diatas*\n\n📃 *Metode Lain*\n🏷️ *Ovo : 62-*\n🏷️ *Dana : 62-*\n🏷️ *Gopay : 62-*\n\n⚠️ *Dimohon Untuk Mengirim Bukti Pembayaran*\n\n❤️ *Terimakasih*',
 }
