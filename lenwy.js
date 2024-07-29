@@ -196,19 +196,19 @@ const len2 = {
 }
 
 const lenwyreply = (teks) => {
-lenwy.sendMessage(from, { text: teks, contextInfo:{"externalAdReply": {"title": `☘️ Halo Aku Lenwy`,"body": `Hai kak ${pushname} Jangan Spam Ya`, "previewType": "PHOTO","thumbnail": thumb,"sourceUrl": `https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u`}}}, { quoted: len })}
+lenwy.sendMessage(from, { text: teks, contextInfo:{"externalAdReply": {"title": `☘️ Halo Aku Bot Skripsi`,"body": `Hai kak ${pushname} Jangan Spam Ya`, "previewType": "PHOTO","thumbnail": thumb,"sourceUrl": `https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V`}}}, { quoted: len })}
 // Tanpa ContextInfo : lenwy.sendMessage(from, { text: teks, }, { quoted: len })}
 
 const onlygc = () => {
 lenwy.sendMessage(m.chat, {
-    text: `☘️ *Hello Im Lenwy*\n⚠️ *Fitur Bot Hanya Bisa Digunakan Didalam Grup*\n\n🎁 *Mau Sc? Ketik Lenwy Di Grup*\n\n☘️ *Information :*\n *⨠ Version : 2.0*\n *⨠ Author : Lenwy*\n *⨠ Author :* wa.me/6283829814737\n🎁 *Telegram Author :* t.me/ilenwy`,
+    text: `☘️ *Alfin Faridh Taufiqiy*\n⚠️ *Fitur Bot Hanya Bisa Digunakan Didalam Grup*\n\n🎁 *Mau Sc? Ketik Lenwy Di Grup*\n\n☘️ *Information :*\n *⨠ Version : 2.0*\n *⨠ Author : Alfin Faridh Taufiqiy*\n *⨠ Author :* wa.me/6281231948641\n🎁 *Telegram Author :* t.me/apintrava`,
     contextInfo: {
       externalAdReply: {
         showAdAttribution: true, 
         title: `${ucapanWaktu}`,
         body: "Lenwy",
-        thumbnailUrl: "https://telegra.ph/file/846e7e790c4548710c553.jpg",
-        sourceUrl: "https://chat.whatsapp.com/LJViMFtwsTqLRSIY8aklKP",
+        thumbnailUrl: "https://telegra.ph/file/45437c5ab75775ae23139.jpg",
+        sourceUrl: "https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V",
         mediaType: 1,
         renderLargerThumbnail: true
       }
@@ -479,8 +479,8 @@ lenwyreply(`${err}`)
 
 async function LenwyLD () {
 var leni = [
-"☘️ *Hello Im Lenwy*",
-"📑 *Author : Lenwy*",
+"☘️ *Hello Im Alfin Faridh Taufiqiy*",
+"📑 *Author : Alfin Faridh Taufiqiy*",
 "🎁 *Sending Results...*",
 ]
 let { key } = await lenwy.sendMessage(from, {text: '☘️ *Loading*'},  { quoted: len })
@@ -1198,7 +1198,7 @@ case 'mainmenu': {
 if (isBan) return lenwyreply('⚠️ *Kamu Di Ban Owner*')
 LenwyLD()
 await sleep(1000)
-let anu = `*Hello Im Lenwy* 👋
+let anu = `*Alfin Faridh Taufiqiy* 👋
 *WhatsApp Bot To Solve Your Problems* 🙌
 *Please Dont Call Bots Or Your May Get Blocked* 🚫
 
@@ -1233,7 +1233,7 @@ lenwy.sendMessage(m.chat, {
         title: `${ucapanWaktu} ${pushname}`,
         body: "Lenwy",
         thumbnailUrl: "https://telegra.ph/file/846e7e790c4548710c553.jpg",
-        sourceUrl: "https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u",
+        sourceUrl: "https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V",
         mediaType: 1,
         renderLargerThumbnail: false
       }
@@ -1247,7 +1247,7 @@ case 'allmenu': {
 if (isBan) return lenwyreply('⚠️ *Kamu Di Ban Owner*')
 LenwyLD()
 await sleep(1000)
-let anu = `*Hello Im Lenwy* 👋
+let anu = `*Alfin Faridh Taufiqiy* 👋
 *WhatsApp Bot To Solve Your Problems* 🙌
 *Please Dont Call Bots Or Your May Get Blocked* 🚫
 
@@ -1288,12 +1288,6 @@ let anu = `*Hello Im Lenwy* 👋
 
 📦 *Ai Menu*
  *⨠ Ai*
- *⨠ Ask*
- *⨠ Bing*
- *⨠ GPT4*
- *⨠ OpenAi*
- *⨠ Remini*
- *⨠ Gemini*
 
 📦 *Fun Menu*
  *⨠ Truth*
@@ -1385,11 +1379,6 @@ let anu = `*Hello Im Lenwy* 👋
  *⨠ Stalktiktok*
 
 📦 *Download Menu*
- *⨠ Fbdl (linknya)*
- *⨠ Igdl (linknya)*
- *⨠ Igslide (linknya)*
- *⨠ Tiktok (linknya)*
- *⨠ Ttslide (linknya)*
  *⨠ Ytmp3 (linknya)*
  *⨠ Ytmp4 (linknya)*
 
@@ -1545,7 +1534,7 @@ lenwy.sendMessage(m.chat, {
         title: `${ucapanWaktu} ${pushname}`,
         body: "Lenwy",
         thumbnailUrl: "https://telegra.ph/file/846e7e790c4548710c553.jpg",
-        sourceUrl: "https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u",
+        sourceUrl: "https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V",
         mediaType: 1,
         renderLargerThumbnail: false
       }
@@ -1559,7 +1548,7 @@ case 'mainmenu': {
 if (isBan) return lenwyreply('⚠️ *Kamu Di Ban Owner*')
 LenwyLD()
 await sleep(1000)
-let LenwyBTm = `*Hello Im Lenwy* 👋
+let LenwyBTm = `*Alfin Faridh Taufiqiy* 👋
 *WhatsApp Bot To Solve Your Problems* 🙌
 
 ☘️ *Info Bot*  
@@ -1572,7 +1561,7 @@ let LenwyBTm = `*Hello Im Lenwy* 👋
  *⨠ Number :* ${m.sender.split('@')[0]}
  *⨠ Status : ${isCreator ? '☘️ Creator' : isPrem ? '🎁 Premium' : "🏷️ User"}*`
 
-let LenwyORIm = `*Hello Im Lenwy* 👋
+let LenwyORIm = `*Alfin Faridh Taufiqiy* 👋
 *WhatsApp Bot To Solve Your Problems* 🙌
 *Please Dont Call Bots Or Your May Get Blocked* 🚫
 
@@ -1601,7 +1590,7 @@ showAdAttribution: true,
 title: `${ucapanWaktu} ${pushname}`,
 body: "Lenwy",
 thumbnailUrl: "https://telegra.ph/file/846e7e790c4548710c553.jpg",
-sourceUrl: "https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u",
+sourceUrl: "https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V",
 mediaType: 1,
 renderLargerThumbnail: false
                             }
@@ -1615,8 +1604,8 @@ let sections = [{
         highlight_label: 'Favorit',
         rows: [{
         header: '🛍️ Beli Script',
-        title: 'Script Lenwy',
-        description: `Beli Script Lenwy`,
+        title: 'Script Alfin Faridh Taufiqiy',
+        description: `Beli Script Alfin Faridh Taufiqiy`,
         id: `script`
         },
         {
@@ -1628,7 +1617,7 @@ let sections = [{
         {    
         header: '🛍️ Sewa Bot',
         title: 'Sewa Bot',
-        description: "Sewa Bot Lenwy",
+        description: "Sewa Bot Alfin Faridh Taufiqiy",
         id: `sewa`
         }]
         },
@@ -1888,11 +1877,6 @@ if (isBan) return lenwyreply('⚠️ *Kamu Di Ban Owner*')
 LenwyLD()
 await sleep(1000)
 lenwyreply(`📦 *Download Menu*
- *⨠ Fbdl (linknya)*
- *⨠ Igdl (linknya)*
- *⨠ Igslide (linknya)*
- *⨠ Tiktok (linknya)*
- *⨠ Ttslide (linknya)*
  *⨠ Ytmp3 (linknya)*
  *⨠ Ytmp4 (linknya)*
 
@@ -2059,11 +2043,6 @@ LenwyLD()
 await sleep(1000)
 lenwyreply(`📦 *Ai Menu*
  *⨠ Ai*
- *⨠ Ask*
- *⨠ Bing* 
- *⨠ GPT4*
- *⨠ OpenAi*
- *⨠ Gemini*
 
 ⚠️ *Kalo Ada Error Bisa Chat Owner Ya*
 `)
@@ -2469,12 +2448,12 @@ break
 
 case 'sc':
 case 'script': {
-let buy = `☘️ *Script Bot Lenwy : 20K*
+let buy = `☘️ *Script Bot Alfin Faridh Taufiqiy : 20K*
 📑 *No Enc, Free Apikey, Pairing Code*
 📦 *Males Edit Sc? Ketik : Jedit*
 
-🎁 *Beli? :* wa.me/6283829814737
-🎁 *Langsung Ke Tele :* t.me/ilenwy
+🎁 *Beli? :* wa.me/6281231948641
+🎁 *Langsung Ke Tele :* t.me/apintrava
 `
 lenwy.relayMessage(m.chat,  {
     requestPaymentMessage: {
@@ -2659,12 +2638,12 @@ break
 
 case 'bot': {
 lenwyreply(`☘️ *Bot Lenwy Aktif*
-🎁 *Author :* wa.me/6283829814737\n🎁 *Telegram Author :* t.me/ilenwy`)
+🎁 *Author :* wa.me/6281231948641\n🎁 *Telegram Author :* t.me/apintrava`)
 }
 break
 
 case 'lenwy': {
-lenwyreply(`📣 *Link Sc Lenwy Ada Di Deskripsi Saluran Wa :* https://whatsapp.com/channel/0029VaGdzBSGZNCmoTgN2K0u`)
+lenwyreply(`📣 *Link Sc Lenwy Ada Di Deskripsi Saluran Wa :* https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V`)
 }
 break
 
@@ -2687,7 +2666,7 @@ lenwyreply(`☘️ *Halo Juga*`)
 break
 
 case 'jedit': {
-lenwyreply(`☘️ *Jasa Edit Script*\n☘️ *Malas Edit Sc? Chat Aja Harga Menyesuaikan*\n🎁 *Chat Nomor : wa.me/6283829814737*\n🎁 *Langsung Ke Tele : t.me/ilenwy*`)
+lenwyreply(`☘️ *Jasa Edit Script*\n☘️ *Malas Edit Sc? Chat Aja Harga Menyesuaikan*\n🎁 *Chat Nomor : wa.me/6281231948641*\n🎁 *Langsung Ke Tele : t.me/apintrava*`)
 }
 break
 
@@ -2709,8 +2688,8 @@ lenwyreply(`☘️ *Halo Ini List Harga panelnya Ya*
 *Script Kalian Terjamin Aman Karna Saya Langsung Yang Mengurusnya, Tidak Ada Admin Panel Ataupun Reseller* 
 
 ☘️ *Mau Beli? Bisa Chat :*
-🎁 *Chat :* wa.me/6283829814737
-🎁 *Langsung Ke Tele :* t.me/ilenwy`)
+🎁 *Chat :* wa.me/6281231948641
+🎁 *Langsung Ke Tele :* t.me/apintrava`)
 }
 break
 
@@ -2863,7 +2842,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -2965,7 +2944,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3067,7 +3046,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3169,7 +3148,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3271,7 +3250,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3373,7 +3352,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3475,7 +3454,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3577,7 +3556,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3679,7 +3658,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3781,7 +3760,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -3883,7 +3862,7 @@ LenwyPanel = `☘️ *Login Panel :* ${domain}
 📑 *Garansi : -*
 ⚠️ *Tolong Jaga Informasi Akun Anda*
 
-📣 *Beli Panel Chat Lenwy :* wa.me/6283829814737`
+📣 *Beli Panel Chat Lenwy :* wa.me/6281231948641`
 lenwy.sendMessage(u,{image: {url: 'https://telegra.ph/file/54ff237913e8fdf5774b1.png'}, caption: LenwyPanel }, { quoted: m })
 let data2 = await f2.json();
 let startup_cmd = data2.attributes.startup
@@ -4951,8 +4930,8 @@ lenwyreply(`☘️ *Harga Sewa Bot Lenwy*
 📦 *1 Minggu = 10k*
 📦 *1 Bulan = 20k*
 
-🎁 *Chat : wa.me/6283829814737*
-🎁 *Langsung Ke Tele : t.me/ilenwy*`)
+🎁 *Chat : wa.me/6281231948641*
+🎁 *Langsung Ke Tele : t.me/apintrava*`)
 break
 
 case 'produk': {
@@ -4992,7 +4971,7 @@ let msg = generateWAMessageFromContent(m.chat, {
                 buttons: [
                   {
                     name: "cta_url",
-                    buttonParamsJson: `{"display_text":"Order Here!","url":"https://wa.me/6283829814737?text=Mau+Beli+Sc+Lenwy+Dong","merchant_url":"https://wa.me/6283829814737?text=Mau+Beli+Sc+Lenwy+Dong"}`
+                    buttonParamsJson: `{"display_text":"Order Here!","url":"https://wa.me/6281231948641?text=Mau+Beli+Sc+Lenwy+Dong","merchant_url":"https://wa.me/6281231948641?text=Mau+Beli+Sc+Lenwy+Dong"}`
                   }
                   ]
               })
@@ -5009,7 +4988,7 @@ let msg = generateWAMessageFromContent(m.chat, {
                 buttons: [
                   {
                     name: "cta_url",
-                    buttonParamsJson: `{"display_text":"Order Here!","url":"https://wa.me/6283829814737?text=Mau+Beli+Panel+Unlimited+Dong","merchant_url":"https://wa.me/6283829814737?text=Mau+Beli+Panel+Unlimited+Dong"}`
+                    buttonParamsJson: `{"display_text":"Order Here!","url":"https://wa.me/6281231948641?text=Mau+Beli+Panel+Unlimited+Dong","merchant_url":"https://wa.me/6281231948641?text=Mau+Beli+Panel+Unlimited+Dong"}`
                   }
                   ]
               })
@@ -5026,7 +5005,7 @@ let msg = generateWAMessageFromContent(m.chat, {
                 buttons: [
                   {
                     name: "cta_url",
-                    buttonParamsJson: `{"display_text":"Order Here!","url":"https://wa.me/6283829814737?text=Mau+Sewa+Bot+Lenwy+Dong","merchant_url":"https://wa.me/6283829814737?text=Mau+Sewa+Bot+Lenwy+Dong"}`
+                    buttonParamsJson: `{"display_text":"Order Here!","url":"https://wa.me/6281231948641?text=Mau+Sewa+Bot+Lenwy+Dong","merchant_url":"https://wa.me/6281231948641?text=Mau+Sewa+Bot+Lenwy+Dong"}`
                   }
                   ]
               })

@@ -2,10 +2,10 @@ const fs = require('fs')
 const chalk = require('chalk')
 const moment = require('moment-timezone')
 
-global.grup = 'https://whatsapp.com/channel/0029VafJowe7dmeZ941VPt16'
+global.grup = 'https://chat.whatsapp.com/IDOfRIpCElZI2JbnJ09N1V'
 global.ig = '-'
 global.thumb = fs.readFileSync("./data/image/thumb.jpg")
-global.email = 'Fake01@gmail.com'
+global.email = 'selenapro2000@gmail.com'
 global.region = 'Indonesia'
 
 global.owner = ['6281231948641']
@@ -23,7 +23,7 @@ global.location = '1'
 global.lenwymenu = 'Alfin Faridh Taufiqiy'
 global.botname = 'Alfin Faridh Taufiqiy'
 global.packname = 'Alfin Faridh Taufiqiy'
-global.author = `Bot: 6281231948641`
+global.author = `Whatsapp: \nBot: 6281231948641`
 global.prefa = ['','!','.',',','🐤','🗿']
 global.sessionName = 'apin'
 global.anticall = true
